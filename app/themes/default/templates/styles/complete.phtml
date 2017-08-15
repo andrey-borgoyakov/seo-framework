@@ -1,0 +1,24 @@
+<?php $completeData = $GLOBALS['performance_test']; ?>
+<div class="complete">
+    <h3>RESULTS:</h3>
+    <?php if ($completeData['average_time'] > 0.20) : ?>
+        <div class="alert-box warning"><span>Notice: </span>Test has been finished but you have some
+            problems with you site response. Details below.
+        </div>
+    <?php endif; ?>
+    <h5>Your Resoponse time is - <?php echo $completeData['average_time']; ?> </h5>
+    <?php if ($completeData['average_time'] < 0.20) : ?>
+        <div class="results-dialog">
+            <div class="alert-box success">
+                <span>Success:</span>Test has been finished. Your site response good.
+            </div>
+        </div>
+        <br>
+    <?php endif; ?>
+    <?php if ($completeData['average_time'] < 0.20) : ?>
+        <span style="color: green"> Response time faster that 0.20. Good Results.</span><br>
+    <?php else : ?>
+        <span style="color: red"> Response time slower that 0.20. Bad News..</span><br>
+    <?php endif; ?>
+    <br>
+<div><span><a href="<?php echo $this->getUrl('performance'); ?>">Try Another one  ?</a></span></div>

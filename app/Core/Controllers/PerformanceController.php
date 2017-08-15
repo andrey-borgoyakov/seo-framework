@@ -15,7 +15,5 @@ class Core_Controllers_PerformanceController extends Core_Origin_Controller
         $responseTime = Runner::getInstance('Core/Models/Performance')->collectResponseTime($data['url']);
         $GLOBALS['performance_test'] = $responseTime;
         Runner::getInstance('Core/Models/Viewer')->renderTemplate('performance/complete');
-
-
     }
 }

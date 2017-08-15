@@ -10,7 +10,7 @@
  * Created by Andrey Borgoyakov. @link
  */
 
-class IndexController extends Controller
+class IndexController extends Core_Origin_Controller
 {
 
 }

@@ -6,7 +6,7 @@
  * {Licence}. You can read public licence here
  * @link https://github.com/andrey-borgoyakov/microshop/blob/master/LICENSE
  * {version}.
- * {copyright} Tiny Shop CMS. (c) 2017
+ * {copyright} Seo Framework. (c) 2017
  * Created by Andrey Borgoyakov. @link
  */
 ?>

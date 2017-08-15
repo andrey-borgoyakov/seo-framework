@@ -1,0 +1,62 @@
+<?php $completeData = $GLOBALS['sitemap_result']; ?>
+<div class="complete">
+    <h3>RESULTS:</h3>
+    <?php if ($completeData['failed_urls']) : ?>
+        <div class="alert-box warning"><span>Notice: </span>Test has been finished but you have some
+            problems
+            with you sitemap.xml. Details below.
+        </div>
+    <?php endif; ?>
+    <?php if (empty($completeData['failed_urls'])) : ?>
+        <div class="results-dialog">
+            <div class="alert-box success"><span>Success:
+                            </span>Test has been finished. Your sitemap didnt have problems.
+            </div>
+        </div>
+    <?php endif; ?>
+    <br>
+    <?php if ($completeData['passed'] or $completeData['failed']) : ?>
+        <span style="color: green"> Sitemap is available.</span><br>
+    <?php else : ?>
+        <span style="color: red"> Sitemap is NOT available!.</span><br>
+    <?php endif; ?>
+    <span style="color: green"> Total Passed with 200 / OK : <strong><?php echo $completeData['passed']; ?>
+            urls.</strong></span><br>
+    <span style="color: red"> Total Failed with 404 / NOT FOUND: <strong><?php echo $completeData['failed']; ?>
+            urls.</strong></span><br><br>
+    <?php if ($completeData['failed_urls']) : ?>
+        ---------------------------------------------------------------- <br>
+        <span>Failed Urls with 404 NOT FOUND response:</span><br>
+        <ul>
+            <?php foreach ($completeData['failed_urls'] as $url) : ?>
+                <li><?php echo $url; ?></li>
+            <?php endforeach; ?>
+        </ul>
+        ----------------------------------------------------------------
+        <br><br>
+        <h3>RECOMMENDATIONS:</h3>
+        <p>
+            You have problems with your site map. At the moment it contains links that return a 404
+            response.
+            Conduct an audit of the site map content and remove links with a 404 response. This will improve
+            your
+            search engine performance, as search engines negatively refer to sites that contain broken links
+            in
+            the
+            site map.
+        </p>
+        <ul>
+            <li> Get a revision of your website sitemap.</li>
+            <li> Remove broken links.</li>
+            <li> Fix broken links.</li>
+            <li> Fix broken links.</li>
+            <li> Check that broken link are removed or fixed.</li>
+            <li> Regenerate sitemap one more time.</li>
+            <li> Get a new test with our service.</li>
+        </ul>
+    <?php endif; ?>
+    <?php if (empty($completeData['failed_urls'])) : ?>
+        <p>Excellent, your site map is accessible and does not contain errors and broken links.</p>
+    <?php endif; ?>
+</div>
+<div><span><a href="<?php echo $this->getUrl('sitemap'); ?>">Try Another one  ?</a></span></div>

@@ -87,12 +87,12 @@ class Core_Origin_View extends Core_Origin_Root
 
     public function getVersion()
     {
-        return '0.0.0 (Alpha Preview)';
+        return '0.0.1 (Alpha Preview)';
     }
 
     public function getCopyRight()
     {
-        return 'Copyright by ABDev. All right reserved. (c) 2017';
+        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017';
     }
 
 

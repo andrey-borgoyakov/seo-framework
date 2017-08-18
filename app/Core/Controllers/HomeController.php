@@ -16,6 +16,6 @@ class Core_Controllers_HomeController extends Core_Origin_Controller
      */
     public function indexAction()
     {
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('includes/home-content');
+        $this->renderTemplate('includes/home-content');
     }
 }

@@ -18,11 +18,23 @@ class Core_Origin_View extends Core_Origin_Root
      * Render Template file via path
      * @param string $template
      */
-    public function renderTemplate($template = '')
+    public function renderTemplate($template)
     {
-        include $this->getTemplate($template);
+        if (is_array($template)) {
+            foreach ($template as $item) {
+                include $this->getTemplate($item);
+            }
+        } else {
+            include $this->getTemplate($template);
+        }
     }
 
+    /**
+     * Return path to template
+     *
+     * @param $template
+     * @return string
+     */
     public function getTemplate($template)
     {
         if (!$template) {
@@ -33,10 +45,10 @@ class Core_Origin_View extends Core_Origin_Root
         $themePath = Runner::getInstance('Filesystem/Commuter')->getSkinDirectoryPath() . self::DEFAULT_THEME;
         $templateFile = $themePath.'/templates/' . $template. Router::TEMPLATE_EXTENSION;
 
-      /*  if(!file_exists($templateFile)) {
+        if(!file_exists($templateFile)) {
             Runner::coreException('Template file not exits. Path: ' . $templateFile);
             die();
-        } */
+        }
 
         return $themePath . '/templates/' . $template . Router::TEMPLATE_EXTENSION;
     }
@@ -84,17 +96,6 @@ class Core_Origin_View extends Core_Origin_Root
 
         return '/app/themes/'. $usedTheme. '/js/';
     }
-
-    public function getVersion()
-    {
-        return '0.0.1 (Alpha Preview)';
-    }
-
-    public function getCopyRight()
-    {
-        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017';
-    }
-
 
     public function getHeader()
     {

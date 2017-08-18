@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * TODO: INCOMPLETE (PLANING)
  * GNU GENERAL PUBLIC LICENSE.
  * Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
  * {Disclaimer}.

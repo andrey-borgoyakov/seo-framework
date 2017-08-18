@@ -12,15 +12,22 @@ class Core_Controllers_UsersController extends Core_Origin_Controller
     {
     }
 
+    /**
+     * Main login action
+     */
     public function loginAction()
     {
         if (!$this->isUserLoggedIn()) {
-            Runner::getInstance('Core/Models/Viewer')->renderTemplate('includes/login');
+            $this->renderTemplate('includes/login');
         } else {
             Router::redirect('/');
         }
     }
 
+    /**
+     * Check if user logged in
+     * @return mixed
+     */
     public function isUserLoggedIn()
     {
         return $_SESSION['IS_LOGGED_IN'];

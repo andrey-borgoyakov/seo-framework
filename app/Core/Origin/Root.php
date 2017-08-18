@@ -13,4 +13,18 @@
 abstract class Core_Origin_Root
 {
 
+    public function renderTemplate($path)
+    {
+       return Runner::getInstance('Core/Origin/View')->renderTemplate($path);
+    }
+
+    public function getVersion()
+    {
+        return '0.0.1 ( α )';
+    }
+
+    public function getCopyRight()
+    {
+        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017';
+    }
 }

@@ -6,12 +6,19 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
     public $failed = 0;
     public $failedUrls = array();
 
-    public function indexAction() {
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('sitemap/home');
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('sitemap/request-form');
+    /**
+     * Default action
+     */
+    public function indexAction()
+    {
+        $this->renderTemplate(array('sitemap/home', 'sitemap/request-form'));
     }
 
-    public function postAction() {
+    /**
+     * Main post action with triggering process
+     */
+    public function postAction()
+    {
         $errors     = array();
         $postData   = $this->getPost();
         $sitemapUrl = $postData['sitemap'];
@@ -34,7 +41,13 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
 
     }
 
-    public function proccessRequestAction($sitemapUrl) {
+    /**
+     * Process parsing and collection response of each url
+     *
+     * @param $sitemapUrl
+     */
+    public function proccessRequestAction($sitemapUrl)
+    {
         $i    = 0;
         $urls = $this->getAllUrlsAction($sitemapUrl);
         foreach ($urls as $url) {
@@ -49,7 +62,11 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
         $this->completeAction();
     }
 
-    public function completeAction() {
+    /**
+     * Final action with summary information
+     */
+    public function completeAction()
+    {
         $completeData                = array();
         $completeData['passed']      = $this->passed;
         $completeData['failed']      = $this->failed;
@@ -59,7 +76,14 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
     }
 
 
-    public function getAllUrlsAction($map) {
+    /**
+     * Return all urls from sitemap.xml as Array
+     *
+     * @param $map
+     * @return array
+     */
+    public function getAllUrlsAction($map)
+    {
         $urls                            = array();
         $DomDocument                     = new DOMDocument();
         $DomDocument->preserveWhiteSpace = false;
@@ -73,8 +97,14 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
         return $urls;
     }
 
-    public function sitemapErrorsAction($errors) {
+    /**
+     * Collect sitemap errors
+     *
+     * @param $errors
+     */
+    public function sitemapErrorsAction($errors)
+    {
         $GLOBALS['errors'] = $errors;
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('sitemap/errors');
+        $this->renderTemplate('sitemap/errors');
     }
 }

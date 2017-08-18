@@ -3,17 +3,22 @@
 class Core_Controllers_PerformanceController extends Core_Origin_Controller
 {
 
+    /**
+     * Default index action
+     */
     public function indexAction()
     {
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('performance/home');
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('performance/request-form');
+        $this->renderTemplate(array('performance/home', 'performance/request-form'));
     }
 
+    /**
+     * Main process action
+     */
     public function processAction()
     {
         $data = $this->getPost();
         $responseTime = Runner::getInstance('Core/Models/Performance')->collectResponseTime($data['url']);
         $GLOBALS['performance_test'] = $responseTime;
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('performance/complete');
+        $this->renderTemplate('performance/complete');
     }
 }

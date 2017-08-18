@@ -13,7 +13,30 @@
 class Core_Origin_Controller extends Core_Origin_Root
 {
 
+    /**
+     * TODO: Need to transfer all into getRequest
+     *
+     * @deprecated use getRequest instead.
+     *
+     * @return mixed
+     */
     public function getPost() {
+
         return $_POST;
     }
+
+    public function getRequest()
+    {
+        $request = null;
+        if ($_POST) {
+            $request = $_POST;
+        }
+
+        if ($_GET) {
+            $request = $_GET;
+        }
+
+        return $request;
+    }
+
 }

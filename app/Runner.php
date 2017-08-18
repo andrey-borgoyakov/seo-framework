@@ -46,7 +46,7 @@ final class Runner
         if ($method) {
             $additionalMethod = ' in ' . $method;
         }
-        $showException = 'TinyShop Core Exception' . $additionalMethod . ': ' . $exceptionText;
+        $showException = 'Framework Core Exception' . $additionalMethod . ': ' . $exceptionText;
         throw new Exception($showException);
     }
 
@@ -63,7 +63,7 @@ final class Runner
         if ($method) {
             $additionalMethod = ' in ' . $method;
         }
-        $showException = 'TinyShop MySQL Exception' . $additionalMethod . ': ' . $exceptionText;
+        $showException = 'Framework MySQL Exception' . $additionalMethod . ': ' . $exceptionText;
         throw new Exception($showException);
     }
 

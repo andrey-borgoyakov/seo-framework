@@ -1,8 +1,16 @@
 <?php
 
 class Core_Models_Performance extends Core_Origin_Model {
+
+    /** @var array used for collecting time tests data */
     public $allTests = array();
 
+    /**
+     * Return avarage value for connection time.
+     *
+     * @param $url
+     * @return array
+     */
     public function collectResponseTime($url)
     {
         $responseTime = null;

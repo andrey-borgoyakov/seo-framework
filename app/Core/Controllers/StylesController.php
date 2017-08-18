@@ -2,22 +2,34 @@
 
 class Core_Controllers_StylesController extends Core_Origin_Controller
 {
+
+    /**
+     * Index Action
+     */
     public function indexAction()
     {
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('styles/home');
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('styles/request-form');
+        $this->renderTemplate(array('styles/home', 'styles/request-form'));
     }
 
+    /**
+     * Process finding inline styles
+     */
     public function processAction()
     {
         $data = $this->getPost();
         if (isset($data['url'])) {
             $content = $this->getContentAction($data['url']);
-            $finded = $this->findAction($content);
+            echo $this->findAction($content);
 
         }
     }
 
+    /**
+     * Return html response of url
+     *
+     * @param $url
+     * @return mixed
+     */
     public function getContentAction($url)
     {
         $ch = curl_init($url);
@@ -29,6 +41,12 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
         return $content;
     }
 
+    /**
+     * Trying to find inline styles
+     *
+     * @param $string
+     * @return string
+     */
     public function findAction($string)
     {
         $pos = strpos($string, 'style');

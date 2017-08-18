@@ -2,6 +2,12 @@
 
 class Core_Models_Sitemap extends Core_Origin_Model
 {
+    /**
+     * Validate sitemap availability
+     *
+     * @param $map
+     * @return bool
+     */
     public function validateMapUrl($map) {
         $result = false;
         if ($this->getUrlHttpStatus($map) == 200) {
@@ -11,6 +17,12 @@ class Core_Models_Sitemap extends Core_Origin_Model
         return $result;
     }
 
+    /**
+     * Return http status code of Url
+     *
+     * @param $map
+     * @return mixed
+     */
     public function getUrlHttpStatus($map) {
         $ch = curl_init($map);
         curl_setopt($ch, CURLOPT_HEADER, true);

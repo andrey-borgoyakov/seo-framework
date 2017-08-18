@@ -44,6 +44,14 @@ div.clear {
     float: left;
 }
 
+.footer{
+    margin-top: 100px;
+}
+
+#header {
+    margin-bottom: 100px;
+}
+
 .login-form {
     max-width: 500px;
     margin: 0 auto;

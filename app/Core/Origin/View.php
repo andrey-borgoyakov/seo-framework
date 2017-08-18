@@ -114,12 +114,13 @@ class Core_Origin_View extends Core_Origin_Root
      *
      * @return string
      */
-    public function getUrl( $path = null ) {
-        $result = '/';
-        if ( $path ) {
+    public function getUrl($path = null)
+    {
+        if ($path) {
             $result = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $path;
+        } else {
+            $result = '/';
         }
-
         return $result;
     }
 

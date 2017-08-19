@@ -28,4 +28,16 @@ abstract class Core_Origin_Root
         return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017' .
             '-== '. $this->getVersion(). ' ==-';
     }
+
+    public function addNotice($message, $type = null)
+    {
+        if(!$type) {
+            Runner::coreException('Required type of notice not specified', 'Core_Origin_Root::addNotice');
+        }
+
+        $GLOBALS['core_notice'] = $message;
+        $this->renderTemplate('notices/'.$type);
+
+
+    }
 }

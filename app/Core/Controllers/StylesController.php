@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * GNU GENERAL PUBLIC LICENSE.
+ * Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ * {Disclaimer}.
+ * {Licence}. You can read public licence here
+ * @link https://github.com/andrey-borgoyakov/seo-framework/blob/master/LICENSE
+ * {version}.
+ * {copyright} Seo Framework. (c) 2017
+ * Created by Andrey Borgoyakov. @link
+ *
+ * Class Core_Controllers_StylesController
+ */
 class Core_Controllers_StylesController extends Core_Origin_Controller
 {
 
@@ -16,11 +28,19 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
      */
     public function processAction()
     {
+        $count = null;
         $data = $this->getPost();
         if (isset($data['url'])) {
             $content = $this->getContentAction($data['url']);
-            echo $this->findAction($content);
+            preg_match_all('/style=/', $content, $matches, PREG_PATTERN_ORDER);
+            foreach ($matches as $match) {
+                $count = count($match);
+            }
 
+            if ($count) {
+                $this->addNotice('hey');
+                $this->renderTemplate('styles/recs/found');
+            }
         }
     }
 
@@ -39,25 +59,5 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
         curl_close($ch);
 
         return $content;
-    }
-
-    /**
-     * Trying to find inline styles
-     *
-     * @param $string
-     * @return string
-     */
-    public function findAction($string)
-    {
-        $pos = strpos($string, 'style');
-
-        if ($pos === false) {
-            $result = "The string 'style' was not found in this page.";
-        }
-        else {
-            $result = "The string 'style' was found in the string on this page,";
-            $result .= " and exists at position $pos.";
-        }
-        return $result;
     }
 }

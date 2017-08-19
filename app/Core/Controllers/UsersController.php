@@ -32,4 +32,9 @@ class Core_Controllers_UsersController extends Core_Origin_Controller
     {
         return $_SESSION['IS_LOGGED_IN'];
     }
+
+    public function settingsAction()
+    {
+        $this->addNotice('Feature in progress...', 'notice');
+    }
 }

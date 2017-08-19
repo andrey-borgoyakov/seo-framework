@@ -31,13 +31,11 @@ abstract class Core_Origin_Root
 
     public function addNotice($message, $type = null)
     {
-        if(!$type) {
+        if (!$type) {
             Runner::coreException('Required type of notice not specified', 'Core_Origin_Root::addNotice');
         }
 
-        $GLOBALS['core_notice'] = $message;
-        $this->renderTemplate('notices/'.$type);
-
-
+        $GLOBALS['core_notification'] = $message;
+        $this->renderTemplate('notices/' . $type);
     }
 }

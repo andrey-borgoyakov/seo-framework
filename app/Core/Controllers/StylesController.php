@@ -38,7 +38,7 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
             }
 
             if ($count) {
-                $this->addNotice('hey');
+                $this->addNotice('Inline Style found', 'warning');
                 $this->renderTemplate('styles/recs/found');
             }
         }

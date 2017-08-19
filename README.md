@@ -5,6 +5,9 @@
 
 1. Refactor notices. Added type of notification messages
 2. Refactor logic. Add notice logic
+3. Added: Include lib in Router::
+4. Added: Reset browser styles
+5. Added: Change log functionality
 
 **Commits on Aug 18, 2017:**
 1. Change public license url

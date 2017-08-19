@@ -29,7 +29,6 @@ a:hover { text-decoration: underline; }
 
 body {
     max-width: 100%;
-    border: 1px solid black;
     padding: 20px;
 }
 
@@ -37,19 +36,11 @@ div.clear {
     clear: both;
 }
 
-.nav {
+#navbar {
     margin: 0 auto;
-}
-
-.nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-}
-
-.nav ul li {
-    display: inline;
+    width: 720px;
+    height: 100%;
+    font-weight: bold;
 }
 
 .copyright {

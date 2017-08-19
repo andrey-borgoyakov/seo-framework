@@ -20,13 +20,13 @@ abstract class Core_Origin_Root
 
     public function getVersion()
     {
-        return '0.0.1 ( α )';
+        return '0.0.2 ( α )';
     }
 
     public function getCopyRight()
     {
-        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017' .
-            '-== '. $this->getVersion(). ' ==-';
+        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017 '
+            . $this->getVersion();
     }
 
     public function addNotice($message, $type = null)

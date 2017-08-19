@@ -168,4 +168,9 @@ final class Router
     {
         return $_SERVER['HTTP_HOST'];
     }
+
+    public static function includeLib($libName)
+    {
+        include('lib/' . $libName);
+    }
 }

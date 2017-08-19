@@ -37,4 +37,9 @@ class Core_Controllers_UsersController extends Core_Origin_Controller
     {
         $this->addNotice('Feature in progress...', 'notice');
     }
+
+    public function changelogAction()
+    {
+        $this->renderTemplate('changelog');
+    }
 }

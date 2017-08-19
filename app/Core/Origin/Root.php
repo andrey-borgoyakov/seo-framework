@@ -25,7 +25,7 @@ abstract class Core_Origin_Root
 
     public function getCopyRight()
     {
-        return 'Copyright by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. (c) 2017 '
+        return 'Copyright (c) 2017 by Andrey Borgoyakov . All right reserved with GNU GENERAL PUBLIC LICENSE. | v.'
             . $this->getVersion();
     }
 

@@ -1,4 +1,7 @@
-<form method="POST" action="<?php echo $this->getUrl('sitemap/post'); ?>">
-    Sitemap Url: <input type="text" placeholder=" example.com/sitemap.xml" name="sitemap">
-    <input type="submit">
+<form method="POST" class="form-inline" action="<?php echo $this->getUrl('sitemap/post'); ?>">
+    <div class="form-group">
+        <label for="email">Sitemap Url:</label>
+        <input class="form-control" id="email" name="sitemap">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
 </form>

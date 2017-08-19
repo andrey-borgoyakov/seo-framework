@@ -28,8 +28,12 @@ a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 body {
-    max-width: 100%;
     padding: 20px;
+}
+
+#wrapper {
+    width:1024px;
+    margin: 0 auto;
 }
 
 div.clear {
@@ -106,4 +110,9 @@ div.clear {
     margin:10px 22px;
     font-size:2em;
     vertical-align:middle;
+}
+
+.request-form {
+    width: 30%;
+    margin: 0 auto;
 }

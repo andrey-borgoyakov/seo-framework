@@ -10,6 +10,7 @@ class Core_Controllers_UsersController extends Core_Origin_Controller
 {
     public function indexAction()
     {
+
     }
 
     /**

@@ -15,7 +15,7 @@ class Core_Models_Performance extends Core_Origin_Model {
     {
         $responseTime = null;
         $ch = null;
-        for ($x = 0; $x <= 50; $x ++) {
+        for ($x = 0; $x <= 10; $x ++) {
             $ch           = curl_init($url);
             curl_setopt($ch, CURLOPT_HEADER, true);
             curl_setopt($ch, CURLOPT_NOBODY, true);
@@ -24,7 +24,7 @@ class Core_Models_Performance extends Core_Origin_Model {
             curl_exec($ch);
             $responseTime += curl_getinfo($ch, CURLINFO_STARTTRANSFER_TIME);
         }
-        $average                        = $responseTime / 50;
+        $average                        = $responseTime / 10;
         $this->allTests['average_time'] = number_format($average, 2, '.', '');
         curl_close($ch);
 

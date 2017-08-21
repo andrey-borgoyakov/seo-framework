@@ -1,8 +1,14 @@
 # seo-framework
+**Commits on Aug 20, 2017:**
+1. Fixed PHPDoc in Runner::CoreException method
+2. Create new UI element goback.phtml
+3. Refactor error message and validation in Styles feature
+4. Refactor getRequest method for more flexibility
 
+**Commits on Aug 20, 2017:**
+1. Change Perfomance test iteration from 50 to 10
 
 **Commits on Aug 19, 2017:**
-
 1. Refactor notices. Added type of notification messages
 2. Refactor logic. Add notice logic
 3. Added: Include lib in Router::

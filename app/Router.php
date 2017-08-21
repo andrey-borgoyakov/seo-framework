@@ -164,11 +164,22 @@ final class Router
         die();
     }
 
+    /**
+     * Return http base url
+     *
+     * @return string
+     */
     public static function getBaseUrl()
     {
         return $_SERVER['HTTP_HOST'];
     }
 
+    /**
+     * Include third-party libs if needed.
+     * For correct include you must store you libs in app/lib folder
+     *
+     * @param $libName
+     */
     public static function includeLib($libName)
     {
         include('lib/' . $libName);

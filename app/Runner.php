@@ -82,6 +82,12 @@ final class Runner
         return substr($realPath, 0, -1);
     }
 
+
+    /**
+     * Include basic required files for correct work
+     *
+     * @return array
+     */
     public static function getRequiredFiles()
     {
         return array(

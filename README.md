@@ -1,9 +1,14 @@
 # seo-framework
-**Commits on Aug 20, 2017:**
+**Commits on Aug 21, 2017:**
 1. Fixed PHPDoc in Runner::CoreException method
 2. Create new UI element goback.phtml
 3. Refactor error message and validation in Styles feature
 4. Refactor getRequest method for more flexibility
+5. Refactor Performance process action
+6. Add Validator class and implement url validation logic
+7. Add constants for typr of notice
+8. Add PHPDocs in Router:: and Runner::
+9. Refactor Sitemap action
 
 **Commits on Aug 20, 2017:**
 1. Change Perfomance test iteration from 50 to 10

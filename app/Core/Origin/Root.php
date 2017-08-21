@@ -12,6 +12,11 @@
  */
 abstract class Core_Origin_Root
 {
+    /** define basic types of framework notices for using in Core_Origin_Root::addNotice */
+    const NOTICE_TYPE_ERROR   = 'error';
+    const NOTICE_TYPE_WARNING = 'warning';
+    const NOTICE_TYPE_NOTICE  = 'notice';
+    const NOTICE_TYPE_SUCCESS = 'success';
 
     public function renderTemplate($path)
     {

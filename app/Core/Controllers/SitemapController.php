@@ -1,7 +1,6 @@
 <?php
-
-class Core_Controllers_SitemapController extends Core_Origin_Controller {
-
+class Core_Controllers_SitemapController extends Core_Origin_Controller
+{
     public $passed = 0;
     public $failed = 0;
     public $failedUrls = array();
@@ -19,26 +18,12 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
      */
     public function postAction()
     {
-        $errors     = array();
-        $postData   = $this->getPost();
-        $sitemapUrl = $postData['sitemap'];
-        if ( ! Runner::getInstance('Core/Models/Sitemap')->validateMapUrl($sitemapUrl)) {
-            $errors[] = 'Sitemap not valid because return status 404 Not Found';
-        }
-        if (stripos($sitemapUrl, '://') === false) {
-            $errors[] = 'Invalid sitemap, you must specifiied http Protocol';
-        }
-
-        if (stripos($sitemapUrl, '.xml') === false) {
-            $errors[] = 'Invalid sitemap, you must specifiied extension of file';
-        }
-
-        if ($errors) {
-            $this->sitemapErrorsAction($errors);
+        $url = $this->getRequest('sitemap');
+        if (Runner::getInstance('Core/Origin/Validator')->validateUrl($url , '.xml')) {
+            $this->proccessRequestAction($url);
         } else {
-            $this->proccessRequestAction($sitemapUrl);
+            $this->indexAction();
         }
-
     }
 
     /**
@@ -72,7 +57,7 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
         $completeData['failed']      = $this->failed;
         $completeData['failed_urls'] = $this->failedUrls;
         $GLOBALS['sitemap_result']   = $completeData;
-        Runner::getInstance('Core/Models/Viewer')->renderTemplate('sitemap/complete');
+        $this->renderTemplate('sitemap/complete');
     }
 
 
@@ -95,16 +80,5 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller {
         }
 
         return $urls;
-    }
-
-    /**
-     * Collect sitemap errors
-     *
-     * @param $errors
-     */
-    public function sitemapErrorsAction($errors)
-    {
-        $GLOBALS['errors'] = $errors;
-        $this->renderTemplate('sitemap/errors');
     }
 }

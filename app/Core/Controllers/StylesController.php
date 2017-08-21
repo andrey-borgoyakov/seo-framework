@@ -29,14 +29,16 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
     public function processAction()
     {
         $count = null;
-        $data = $this->getPost();
-        if (isset($data['url'])) {
-            $content = $this->getContentAction($data['url']);
+        $url = $this->getRequest('url');
+        if (!$url) {
+            $this->addNotice('Please specify url', 'error');
+            $this->renderTemplate('includes/goback');
+        } else {
+            $content = $this->getContentAction($url);
             preg_match_all('/style=/', $content, $matches, PREG_PATTERN_ORDER);
             foreach ($matches as $match) {
                 $count = count($match);
             }
-
             if ($count) {
                 $this->addNotice('Inline Style found', 'warning');
                 $this->renderTemplate('styles/recs/found');

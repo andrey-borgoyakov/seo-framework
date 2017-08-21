@@ -38,6 +38,7 @@ final class Runner
      * Render Core exception with passed text.
      *
      * @param string $exceptionText
+     * @param string $method
      * @throws Exception
      */
     public static function coreException($exceptionText = '', $method = '')

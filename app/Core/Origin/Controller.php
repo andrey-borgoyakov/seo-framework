@@ -25,18 +25,30 @@ class Core_Origin_Controller extends Core_Origin_Root
         return $_POST;
     }
 
-    public function getRequest()
+    /**
+     * Base method for controllers to return POST GET requests
+     *
+     * @param null $attribute
+     * @return null
+     */
+    public function getRequest($attribute = null)
     {
-        $request = null;
+        $response = null;
         if ($_POST) {
-            $request = $_POST;
+            if ($attribute) {
+                foreach ($_POST as $key => $val) {
+                    if ($attribute = $key) {
+                        $response = $val;
+                    }
+                }
+            } else {
+                $response = $_POST;
+            }
         }
-
         if ($_GET) {
-            $request = $_GET;
+            $response = $_GET;
         }
-
-        return $request;
+        return $response;
     }
 
 }

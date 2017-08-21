@@ -19,7 +19,6 @@ class Core_Controllers_PerformanceController extends Core_Origin_Controller
         $data = $this->getPost();
         $responseTime = Runner::getInstance('Core/Models/Performance')->collectResponseTime($data['url']);
         $GLOBALS['performance_test'] = $responseTime;
-        var_dump($responseTime);
         if ((int)$GLOBALS['performance_test'] > 0.20) {
             $this->addNotice("Your response time slower that needed.", 'warning');
         }

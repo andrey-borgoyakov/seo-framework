@@ -27,24 +27,19 @@ img { border: 0; max-width: 100%; }
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+h1, h2, h3, h4, h5 {text-align: center}
+
 body {
     padding: 20px;
 }
 
 #wrapper {
-    width:1024px;
+    max-width:1024px;
     margin: 0 auto;
 }
 
 div.clear {
     clear: both;
-}
-
-#navbar {
-    margin: 0 auto;
-    width: 720px;
-    height: 100%;
-    font-weight: bold;
 }
 
 .copyright {
@@ -67,11 +62,9 @@ div.clear {
 }
 
 .footer{
-    margin-top: 100px;
 }
 
 #header {
-    margin-bottom: 100px;
 }
 
 .login-form {
@@ -82,34 +75,6 @@ div.clear {
 
 .email-label {
     margin-right: 25px;
-}
-
-
-.isa_info, .isa_success, .isa_warning, .isa_error {
-    margin: 10px 0px;
-    padding:12px;
-
-}
-.isa_info {
-    color: #00529B;
-    background-color: #BDE5F8;
-}
-.isa_success {
-    color: #4F8A10;
-    background-color: #DFF2BF;
-}
-.isa_warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-}
-.isa_error {
-    color: #D8000C;
-    background-color: #FFBABA;
-}
-.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
-    margin:10px 22px;
-    font-size:2em;
-    vertical-align:middle;
 }
 
 .request-form {

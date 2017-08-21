@@ -37,7 +37,7 @@ class Core_Controllers_SitemapController extends Core_Origin_Controller
         $urls = $this->getAllUrlsAction($sitemapUrl);
         foreach ($urls as $url) {
             $i++;
-            if (Runner::getInstance('Core/Models/Sitemap')->getUrlHttpStatus($url) == 200) {
+            if (Runner::getInstance('Core/Origin/Validator')->getUrlHttpStatus($url) == 200) {
                 $this->passed ++;
             } else {
                 $this->failed ++;

@@ -29,11 +29,8 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
     public function processAction()
     {
         $count = null;
-        $url = $this->getRequest('url');
-        if (!$url) {
-            $this->addNotice('Please specify url', 'error');
-            $this->renderTemplate('includes/goback');
-        } else {
+        $url   = $this->getRequest('url');
+        if (Runner::getInstance('Core/Origin/Validator')->validateUrl($url)) {
             $content = $this->getContentAction($url);
             preg_match_all('/style=/', $content, $matches, PREG_PATTERN_ORDER);
             foreach ($matches as $match) {
@@ -43,6 +40,8 @@ class Core_Controllers_StylesController extends Core_Origin_Controller
                 $this->addNotice('Inline Style found', 'warning');
                 $this->renderTemplate('styles/recs/found');
             }
+        } else {
+            $this->indexAction();
         }
     }
 

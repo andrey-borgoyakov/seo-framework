@@ -15,5 +15,5 @@ define('SESSION_LIFE_TIME', 10);
 /** DataBase params */
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASSWORD', 'mul2ler0');
-define('DB_NAME', 'tinyshop');
+define('DB_PASSWORD', 'password');
+define('DB_NAME', 'db_name');

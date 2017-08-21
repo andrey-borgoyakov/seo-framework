@@ -9,6 +9,10 @@
 7. Add constants for typr of notice
 8. Add PHPDocs in Router:: and Runner::
 9. Refactor Sitemap action
+10. Fixed sitemap process fatal error
+11. Change data in config.php
+12. Refactor footer, header, navigation menu
+13. Create Titles output
 
 **Commits on Aug 20, 2017:**
 1. Change Perfomance test iteration from 50 to 10

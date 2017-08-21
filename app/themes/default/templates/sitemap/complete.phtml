@@ -2,17 +2,11 @@
 <div class="complete">
     <h3>RESULTS:</h3>
     <?php if ($completeData['failed_urls']) : ?>
-        <div class="alert-box warning"><span>Notice: </span>Test has been finished but you have some
-            problems
-            with you sitemap.xml. Details below.
-        </div>
+        <?php $this->addNotice('Test has been finished but you have some problems with you sitemap.xml. Details below.', self::NOTICE_TYPE_ERROR); ?>
     <?php endif; ?>
     <?php if (empty($completeData['failed_urls'])) : ?>
         <div class="results-dialog">
-            <div class="alert-box success"><span>Success:
-                            </span>Test has been finished. Your sitemap didnt have problems.
-            </div>
-        </div>
+            <?php $this->addNotice('Test has been finished. Your sitemap didnt have problems.', self::NOTICE_TYPE_SUCCESS); ?>
     <?php endif; ?>
     <br>
     <?php if ($completeData['passed'] or $completeData['failed']) : ?>
@@ -59,4 +53,4 @@
         <p>Excellent, your site map is accessible and does not contain errors and broken links.</p>
     <?php endif; ?>
 </div>
-<div><span><a href="<?php echo $this->getUrl('sitemap'); ?>">Try Another one  ?</a></span></div>
+    <?php $this->renderTemplate('includes/goback'); ?>
